@@ -1,0 +1,44 @@
+.chp1{
+width: 800px;
+}
+#dropzone{
+min-height: 100px;
+background: #eee;
+text-align: center;
+margin-bottom: 50px;
+}
+#dropzone th{
+    text-align: center;
+}
+#dropzone .col1{
+    width:30px;
+}
+#dropzone .col2{
+    width:230px;
+    text-align: left;
+}
+#dropzone .col3{
+    width:370px;
+    text-align: left;
+}
+#dropzone .col4{
+    width:150px;
+}
+#dropzone .col4>span{
+    margin:5px 15px;
+    cursor:pointer;
+    color: #aaa;
+}
+#dropzone .col4>span:hover{color:#d53b08;}
+.btn-delete{
+margin: 5px 10px;
+cursor:pointer;
+color: #aaa;
+}
+#ext-wrp>img{width:100%;height: 100%;}
+.btn-delete:hover{color:#d53b08;}
+.error_msg{color:#d53b08;}
+.err-legend{
+    display:none;
+    color:#d53b08;
+}

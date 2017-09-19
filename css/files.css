@@ -1,0 +1,110 @@
+.row{
+display:flex;
+}
+.sidebar{
+border-right: 1px solid #aaa;
+min-height: 400px;
+min-width: 225px;
+}
+.gpss{
+display:block;
+padding:0;
+}
+.gpss>li{
+display: block;
+margin: 5px 7px;
+padding: 3px;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-shadow: 2px 2px 5px #000;
+text-align: center;
+cursor:pointer;     
+}
+.active{
+box-shadow: 1px 1px 10px #000;
+background: #0094ad;
+color: #fff;
+}
+.gpss>li:hover{
+box-shadow: 1px 1px 10px #000;
+background: #89e0ef;
+color: #000;
+}
+h3{
+display: block;
+text-align: center;
+width:100%;
+}
+.item{
+display: flex;
+margin: 5px;
+min-width: 150px;
+padding: 5px;
+box-shadow: 0px 0px 5px #000;
+float: left;
+cursor:pointer;
+}
+.item:hover{
+box-shadow: 2px 2px 5px #000;
+}
+.it_l{
+margin-right: 5px;
+}
+.addgrp{
+width: 100%;
+}
+.delgrp{
+width: 100%;
+margin-top:15px;
+color:#f00;
+font-weight: 600;
+}
+.avgrp{
+width: 100%;
+margin-top: 10px;
+}
+.btn:hover{
+box-shadow: 0 0 5px #000;
+}
+#addfrm{
+position:absolute;
+display:none;
+background: #fff;
+left: 400px;
+top: 200px;
+padding: 10px;
+z-index: 99;
+}
+#addfrm h3{
+display: block;
+text-align: center;
+}
+#addfrm .frm_str{
+margin:5px 0;
+}
+#addfrm .frmbtn{
+width: 150px;
+margin:0 5px;
+}
+#addfrm input{
+width: 200px;
+margin:0 5px;
+}
+.rtbar{ }
+.panel_prop{}
+.panel_prop1{display:none;}
+.prop_str{display: flex;}
+.prop_str .caps{width:100px;}
+.prop_str .vals{font-weight: 600;}
+.panel_prop2{display:none;}
+.panel_prop2 .btn{display: block;
+margin: 10px auto;
+width: 70%;
+}
+.delfl{color:#f00;font-weight: 600;}
+.delfl:hover{color:#f00;}
+.panel_prop2 select{
+display: block;
+margin: 10px auto;
+width: 70%;
+}

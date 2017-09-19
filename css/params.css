@@ -1,0 +1,33 @@
+.item{
+display:flex;
+padding-top: 20px;
+border-top:1px solid #000;
+}
+.lside{
+width:350px;
+}
+.i_str{
+display:flex;
+margin:5px;
+}
+.i_str .caps{
+width:200px;
+}
+.iname{
+font-weight: 600;
+}
+.mside{
+margin-left:15px;
+}
+.parval{
+width:250px;
+}
+.btn.saveprm{
+display: block;
+margin: 10px auto;
+width: 70%;
+box-shadow: 0 0 5px #000;
+}
+.btn.saveprm:hover{
+box-shadow: 2px 2px 5px #000;
+}

@@ -1,0 +1,19 @@
+<?php
+  if(isset($_GET["file"])){
+      $fl=$_GET["file"];
+      require($PathLoc."/command/downloadfile.tpl");
+      exit;
+  }
+  if(isset($_GET["cmd"])){
+      $cmd=$_GET["cmd"];
+      require($PathLoc."/command/$cmd.tpl");
+      exit;
+  }
+  $do="main";
+  if(isset($_GET["do"]))$_SESSION['do']=$_GET["do"];
+  if(isset($_SESSION['do']))$do=$_SESSION['do'];
+  
+  require("header.tpl");
+  require($do.".tpl");
+  require("footer.tpl");
+?>

@@ -1,0 +1,15 @@
+.btmenu{display:flex;}
+.table{}
+th{text-align: center;font-weight: 600;}
+.grp{font-size: 16pt; font-weight: 600;}
+tbody tr{cursor:pointer;}
+tbody tr:hover{background: #74f0f5;}
+.col1{width:50px;}
+.col2{width:200px;}
+.col3{width:170px;}
+.col4{width:170px;}
+.col5{width:250px;}
+.col6{width:150px;}
+.cred{color: #f00;}
+.ccolor{color: #4A2FD2;font-weight: 600;}
+.viewas{margin: 0 10px;font-size: 14pt;}

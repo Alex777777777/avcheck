@@ -1,0 +1,29 @@
+.tbtools{
+margin:0 5px;
+cursor:pointer;
+color:#666;
+}
+.tbtools:hover{
+font-weight: 600;
+color:#000;
+}
+.active2>a{
+color: #fff;
+background-color: #428bca;
+}
+tr.active2>td{
+color: #fff;
+background-color: #428bca;
+}
+#btn_newuser>span{
+background: #428bca;
+color: #ddd;
+padding: 5px 20px;
+border-radius: 3px;
+cursor: pointer;
+box-shadow: 1px 1px 5px #000;
+}
+#btn_newuser>span:hover{
+color: #fff;
+box-shadow: 2px 2px 5px #000;
+}

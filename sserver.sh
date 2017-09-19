@@ -1,0 +1,1 @@
+nohup /usr/bin/php -f server.php > log/out.txt &

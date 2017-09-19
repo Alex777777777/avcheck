@@ -1,0 +1,95 @@
+.btmenu{display:flex;}
+.item{
+min-width: 1000px;
+margin: 20px;
+border: 1px solid #eee;    
+}
+.item>.caps{
+padding: 6px;
+font-size: 16pt;
+text-align: center;
+background: #eee;
+}
+
+.item .row{
+margin: 0px;
+padding: 5px;
+display: flex;
+}
+.lside div{padding: 5px;border-right: 1px solid #aaa;max-width:200px;}
+.str span{
+display:block;
+}
+.str textarea{
+display:block;
+width: 180px;
+height: 90px;
+}
+.str .pl_name{
+display:block;
+width: 180px;
+}
+.str table{
+width: 180px;
+border: 1px solid #bbb;
+text-align: center;
+}
+table th{text-align: center;}
+.tb-time td{padding:5px;}
+td span.scrl{
+display: block;
+border-radius: 1px;
+box-shadow: 0 0 2px #000;
+margin: 2px;
+cursor: pointer;
+color:#999;
+}
+td span.scrl:hover{box-shadow: 0 0 3px #000;color:#000;}
+td .time-h{width: 30px;}
+td .time-m{width: 60px;}
+td input{
+text-align: center;
+font-weight: 600;
+font-size: 16pt;
+}
+.btn.save-item{
+    width:180px;
+    box-shadow: 0 0 2px #000;
+    margin: 0 0 10px 5px;
+}
+.btn:hover{box-shadow: 1px 1px 4px #000;}
+
+.mside{padding: 15px 10px;min-width: 600px;}
+.sitem{
+width: 150px;
+border: 1px solid #aaa;
+display: inline-block;
+padding:5px;
+margin: 5px;
+}
+.sitem input{
+    float:right;
+    margin:5px;
+}
+.rside{
+width: 150px;
+min-width: 150px;    
+}
+.sicon{
+display:none;
+width:120px;
+margin:10px auto;
+}
+.runsvc{
+width:140px;
+margin:10px auto;
+font-weight: 600;
+font-size: 18pt;
+}
+.delsvc{
+width:140px;
+margin:10px auto;
+font-weight: 600;
+font-size: 18pt;
+color:#f00;
+}
