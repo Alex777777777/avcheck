@@ -90,16 +90,13 @@ if(isset($_FILES["lfile"])){
                         $mfile->Update();
                         $mfile->SetOwner($user->id);
                     
-                    $engs=split(";",$larr["option"]);
                     for($i=0;$i<count($engs);$i++){
-                        if($engs[$i]!=0){
-                            $njob=new avcJobs();
-                            $njob->object=$mfile->id;
-                            $njob->type="avcFile";
-                            $njob->user=$user->id;
-                            $njob->engine=$i+1;
-                            $njob->NewJob();
-                        }
+                        $njob=new avcJobs();
+                        $njob->object=$mfile->id;
+                        $njob->type="avcFile";
+                        $njob->user=$user->id;
+                        $njob->engine=1;
+                        $njob->NewJob();
                     }
                 }else $err_cnt++;
                 }

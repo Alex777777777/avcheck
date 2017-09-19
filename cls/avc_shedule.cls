@@ -303,8 +303,6 @@ function SetJob(){
             $job->engine=1;
             $job->user=$lusr;
             $job->NewJob();
-            $job->engine=2;
-            $job->NewJob();
         }
     }
 }
