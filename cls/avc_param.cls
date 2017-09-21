@@ -9,7 +9,7 @@ class avc_param{
   var $arr;
   var $tbl;
 function __construct(){
-    $this->_clean;
+    $this->_clean();
     $this->arr="";
     $this->tbl="avc_param";
 }

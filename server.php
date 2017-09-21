@@ -1,7 +1,7 @@
 <?php
 set_time_limit(0);
 error_reporting(E_ALL);
-include("Jabber/SendMessage.php");
+//include("Jabber/SendMessage.php");
 function JabberNotify($user, $message){OverviewMessage($message, "", "", $user);}
 $PathLoc=__DIR__;
 $logDir=$PathLoc."/log";
@@ -27,7 +27,7 @@ $enmgr=new avcEngines();
 $resume=new avcResume();
 $luser=new ShellUser();
 $sh= new avcShedule();
-
+if (file_exists($exFile)) exit;
 $enmgr->SelectEngines();
 $flag_exit=0;
 while(!file_exists($sigFile)){
@@ -53,7 +53,7 @@ while(!file_exists($sigFile)){
         $jobs->DeleteJob();
     }
 
-    sleep(60);
+    sleep(30);
 }
 $lstr="SHUTDOWN at SIGNAL";
 $log->Append($lstr);

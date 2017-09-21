@@ -20,7 +20,7 @@ font-weight: 600;
 margin-left:15px;
 }
 .parval{
-width:250px;
+width:350px;
 }
 .btn.saveprm{
 display: block;
@@ -31,3 +31,10 @@ box-shadow: 0 0 5px #000;
 .btn.saveprm:hover{
 box-shadow: 2px 2px 5px #000;
 }
+.srvctrl{min-height: 40px;}
+.srvbt{
+    float:right;
+    color: #1131b9;
+    font-weight: 600;
+}
+.srvbt.active{ color: #f52515;}

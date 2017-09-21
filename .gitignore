@@ -1,1 +1,7 @@
 
+/log/
+/off/
+
+/cls/db_param.inc
+.gitignore
+gitignore.txt

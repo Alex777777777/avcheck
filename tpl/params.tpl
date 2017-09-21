@@ -7,6 +7,25 @@ $param=new avc_param();
   <h1>Параметры движков проверки</h1>
 </div>
 <div class="container-fluid">
+<div class="srvctrl">
+<?php
+$lp=$PathLoc."/log/ex.log";
+$fl=0;
+$txt="";
+$caps="Сервер остановлен.";
+$act="";
+$bc="Запустить сервер";
+if(file_exists($lp)){
+    $fl=1;
+    $txt ="Сервер запущен. Последний обзор в ".trim(file_get_contents($lp));
+    $act="active";
+    $bc="Остановить сервер";
+}
+
+?>
+<button class="button btn srvbt <?= $act ?>"><?= $bc ?></button>
+<div class="srvcaps"><?= $txt ?> </div>
+</div>
 <?php
 $arr=$engs->GetEngsName();
 foreach($arr as $leng){
