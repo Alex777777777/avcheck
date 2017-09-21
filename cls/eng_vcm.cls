@@ -59,7 +59,12 @@ function ParseResponce($parstr){
             $tmp=$this->base_url."/id/".$arr["data"]["info"]["check_id"];
             $parr["~~link"]=$tmp;
             $parr["~~error"]=0;
-        }else $parr["~~error"]=1;
+        }else {
+            global $PathLoc;
+            $lf=$PathLoc."/log/".$this->type.date('Y-m-d-H-i-s').".log";
+            file_put_contents($lf,$this->base_url."/id/".$arr["data"]["info"]["check_id"]);
+            $parr["~~error"]=1;
+        }
         $parr["~~eng"]="vcm";
         
     }else{
