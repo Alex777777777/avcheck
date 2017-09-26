@@ -10,6 +10,9 @@ tbody tr:hover{background: #74f0f5;}
 .col4{width:170px;}
 .col5{width:250px;}
 .col6{width:150px;}
-.cred{color: #f00;}
-.ccolor{color: #4A2FD2;font-weight: 600;}
+.ccolor{display: inline-flex;font-weight: 600;}
+.ccolor>span{display: block;margin: auto 2px;}
+.detects.color{color:#ed1010;}
+.detectn{font-size: 8pt;}
+.detectn.color{color:#1717c9;}
 .viewas{margin: 0 10px;font-size: 14pt;}

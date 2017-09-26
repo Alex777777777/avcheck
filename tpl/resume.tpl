@@ -117,6 +117,7 @@ $tabs=$emgr->GetEngsName();
       for($i=0;$i<$kvo;$i++){
           $rez->GetItem($rez->arr[$i]);
           $rez->Parse();
+          $lurl=$rez->url;
           if($i+1<$kvo)$rez->Compare($rez->arr[$i+1]);
           $data=$rez->time;
           if($rez-iserror=='Y'){
@@ -133,6 +134,7 @@ $tabs=$emgr->GetEngsName();
 <div class="str"><div class='caps'>Дата проверки:</div><div class='vals'><?= $data ?></div></div>
 <div class="str"><div class='caps'>Используемые AVEng:</div><div class='vals'><?= $eng_all ?></div></div>
 <div class="str"><div class='caps'>К-во детектов/новых:</div><div class='vals'><?= $eng_det ?>/<span><?= $eng_new ?></span></div></div>
+<div class="str"><div class='caps'>Ссылка на ресурс:</div><div class='vals'><a href='<?= $lurl ?>' target='_blank'><?= $lurl ?></a></span></div></div>
 </div>
 <?php
       }

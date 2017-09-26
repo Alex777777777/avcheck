@@ -74,6 +74,24 @@ function __construct(){
 }
 function __destruct() {
 }
+function ReadAV($larr){
+    foreach($larr as $key =>$val){
+        if(substr($key,0,2)=="~~")continue;
+        if(!isset($this->arr[$key]))$this->AddAV($key);
+    }
+}
+function AddAV($lkey){
+    global $mdb;
+    $ltb=$this->tbl;
+    $leng=$this->engine;
+    $lcls=$this->class;
+    $lsql="INSERT INTO $ltb(avkey,engine,class,name) VALUES('$lkey','$leng','$lcls','$lkey')";
+    $mdb->do_query($lsql);
+    if($mdb-LastErr){
+        $lid=mysqli_insert_id($mdb->lCon);
+        $this->arr[$lkey]=[$lid,$lkey,$lkey];
+    }
+}
 function Select($eng,$cls){
     global $mdb;
     $this->arr=array();
@@ -125,16 +143,38 @@ function UpdateName($name){
         $this->LastErr=2;
     }
 }
-function GetUserFlag(){
+function GetUserFlag($avid=0){
     global $user;
     global $mdb;
     $uid=$user->id;
-    $fig=$this->id;
-    $lsql="SELECT flag FROM avc_userfilters WHERE user=$uid AND aveng=$fid";
+    $fig=$avid;
+    if(!$fig)$fig=$this->id;
+    $lsql="SELECT flag FROM avc_userfilters WHERE user=$uid AND avkey=$fig";
     $mdb->do_query($lsql);
-    $ret=1;
-    if($mdb->LastErr){if($row=$mdb->GetRow())$ret=$row['flag'];}
-    return($ret);
-}    
+    $ret="ok";
+    if($mdb->LastErr)if($row=$mdb->GetRow())if($row['flag']==0)$ret="no";
+    return($ret);    
+}
+function SetUserFlag($leng,$lflag){
+    global $user;
+    global $mdb;
+    $uid=$user->id;
+    $lsql="SELECT id FROM avc_userfilters WHERE user=$uid AND avkey=$leng";
+    $mdb->do_query($lsql);
+    $fn=1;
+    $lid=0;
+    if($mdb->LastErr){
+        if($row=$mdb->GetRow()){
+            $fn=0;
+            $lid=$row["id"];
+        }
+    }
+    if($fn){
+        $lsql="INSERT INTO avc_userfilters(user,avkey,flag) VALUES($uid,$leng,$lflag)";
+    }else{
+        $lsql="UPDATE avc_userfilters SET flag=$lflag WHERE id=$lid";
+    }
+    $mdb->do_query($lsql);
+}
 }
 ?>

@@ -40,8 +40,8 @@ $(document).ready(function(){
     })
     $("td.col4").click(function(){
         it=$(this).children("span");
-        if(it.hasClass("flag-ok")){it.removeClass("flag-ok").addClass("flag-no");lfl=1;}
-        else {it.removeClass("flag-no").addClass("flag-ok");lfl=0;}
+        if(it.hasClass("flag-ok")){it.removeClass("flag-ok").addClass("flag-no");lfl=0;}
+        else {it.removeClass("flag-no").addClass("flag-ok");lfl=1;}
         leng=it.attr("data-id");
         param={
             "do":"flag",
@@ -57,7 +57,7 @@ $(document).ready(function(){
             success: function(respond){
                 if(respond=="0"){
                     console.log("OK");
-                }else console.log('ОШИБКИ ОТВЕТА сервера: ' + parseInt(respond,10));
+                }else console.log('ОШИБКА ОТВЕТА сервера: ' + parseInt(respond,10));
             }
         });
     })
@@ -80,13 +80,10 @@ $(document).ready(function(){
                 success: function(respond){
                     if(respond=="0"){
                         console.log("OK");
-                    }else console.log('ОШИБКИ ОТВЕТА сервера: ' + parseInt(respond,10));
+                    }else console.log('ОШИБКА ОТВЕТА сервера: ' + parseInt(respond,10));
                 }
           })
           $(this).css("display","none");
       }
-    });
-
-
-    
+    });   
 })

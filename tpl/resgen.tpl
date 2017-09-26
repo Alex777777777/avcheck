@@ -30,7 +30,7 @@ $rez=new avcResume();
           $nt++;
 ?>
 <table class="table ftbl" data-id="<?= $nt?>"><thead>
-<tr><th class="col1">#пп</th><th class="col2">Имя файла</th><th class="col3">VCM</th><th class="col4">S4Y</th><th class="col5">Описание</th><th class="col6">Tools</th></tr>
+<tr><th class="col1">#пп</th><th class="col2">Имя файла</th><th class="col3">VCM</th><th class="col5">Описание</th><th class="col6">Tools</th></tr>
 </thead><tbody>
 <?php
           
@@ -42,27 +42,17 @@ $rez=new avcResume();
               $rez->GetItem($rez->arr[0]);
               $rez->Parse();
               $rez->Compare();
+              $lurl=$rez->url;
               $e1=[$rez->detecta,$rez->detect,$rez->detectn,$rez->time];
-              $e1[4]=$e1[2];
-              $e1[5]=$e1[1];
-              if($e1[2])$e1[2]="<span class='cred'>".$e1[2]."</span>";
-              $e1[0]="<span class='ccolor'>".$e1[0]."/".$e1[1]."/".$e1[2]."</span> от ".$e1[3];
-              }else $e2=["Ошибка получения данных","","",""];
-              $rkvo=$rez->Select($item,2);
-              if($rkvo){
-              $rez->GetItem($rez->arr[0]);
-              $rez->Parse();
-              $rez->Compare();
-              $e2=[$rez->detecta,$rez->detect,$rez->detectn,$rez->time];
-              $e2[4]=$e2[2];
-              $e2[5]=$e2[1];
-              if($e2[2])$e2[2]="<span class='cred'>".$e2[2]."</span>";
-              $e2[0]="<span class='ccolor'>".$e2[0]."/".$e2[1]."/".$e2[2]."</span> от ".$e2[3];
-              }else $e2=["Ошибка получения данных","","",""];
-              $fd=$e1[5]+$e2[5];
-              $fn=$e1[4]+$e2[4];
+              $scl1="";$scl2="";
+              if($rez->detect)$scl1="color";
+              if($rez->detectn)$scl2="color";
+              $e1[0]="<span class='ccolor'><span>".$e1[0]."</span><span class='slash'>&#8260;</span><span class='detects $scl1'>".$e1[1]."</span><span class='slash'>&#8260;</span><span class='detectn  $scl1'>".$e1[2]."</span></span><span><a href='$lurl' target='_blank'> от ".$e1[3]."</a></span>";
+              }else $e1=["Ошибка получения данных",0,0,0];
+              $fd=$e1[1];
+              $fn=$e1[2];
               $datastr="data-d='$fd' data-n='$fn'";
-            echo "<tr $datastr data-lid='$lid'><td class='col1'>$nn</td><td class='col2'>" . $item->name ."</td><td class='col3'>".$e1[0]."</td><td class='col4'>".$e2[0]."</td><td class='col5'>".$item->descr."</td><td class='col6'></td></tr>";
+            echo "<tr $datastr data-lid='$lid'><td class='col1'>$nn</td><td class='col2'>" . $item->name ."</td><td class='col3'>".$e1[0]."</td><td class='col5'>".$item->descr."</td><td class='col6'></td></tr>";
             $nn++;
           }
 ?>
@@ -94,28 +84,17 @@ $rez=new avcResume();
               $rez->GetItem($rez->arr[0]);
               $rez->Parse();
               $rez->Compare();
+              $lurl=$rez->url;
               $e1=[$rez->detecta,$rez->detect,$rez->detectn,$rez->time];
-              $e2[4]=$e2[2];
-              $e2[5]=$e2[1];
-              if($e1[2])$e1[2]="<span class='cred'>".$e1[2]."</span>";
-              $e1[0]="<span class='ccolor'>".$e1[0]."/".$e1[1]."/".$e1[2]."</span> от ".$e1[3];
-              }else $e2=["Ошибка получения данных","","",""];
-              $rez=new avcResume();
-              $rkvo=$rez->Select($item,2);
-              if($rkvo){
-              $rez->GetItem($rez->arr[0]);
-              $rez->Parse();
-              $rez->Compare();
-              $e2=[$rez->detecta,$rez->detect,$rez->detectn,$rez->time];
-              $e2[4]=$e2[2];
-              $e2[5]=$e2[1];
-              if($e2[2])$e2[2]="<span class='cred'>".$e2[2]."</span>";
-              $e2[0]="<span class='ccolor'>".$e2[0]."/".$e2[1]."/".$e2[2]."</span> от ".$e2[3];
-              }else $e2=["Ошибка получения данных","","",""];
-              $fd=$e1[5]+$e2[5];
-              $fn=$e1[4]+$e2[4];
+              $scl1="";$scl2="";
+              if($rez->detect)$scl1="color";
+              if($rez->detectn)$scl2="color";
+              $e1[0]="<span class='ccolor'><span>".$e1[0]."</span><span class='slash'>&#8260;</span><span class='detects $scl1'>".$e1[1]."</span><span class='slash'>&#8260;</span><span class='detectn  $scl1'>".$e1[2]."</span></span><span><a href='$lurl' target='_blank'> от ".$e1[3]."</a></span>";
+              }else $e1=["Ошибка получения данных",0,0,0];
+              $fd=$e1[1];
+              $fn=$e1[2];
               $datastr="data-d='$fd' data-n='$fn'";
-            echo "<tr $datastr  data-lid='$lid'><td class='col1'>$nn</td><td class='col2'>" . $item->name ."</td><td class='col3'>".$e1[0]."</td><td class='col4'>".$e2[0]."</td><td class='col5'>".$item->descr."</td><td class='col6'></td></tr>";
+            echo "<tr $datastr data-lid='$lid'><td class='col1'>$nn</td><td class='col2'>" . $item->name ."</td><td class='col3'>".$e1[0]."</td><td class='col5'>".$item->descr."</td><td class='col6'></td></tr>";
             $nn++;
           }
 ?>

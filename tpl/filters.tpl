@@ -72,7 +72,40 @@ $flt=new avc_filters();
       </div>
       <div class="panel panel-default">
       <div class="panel-heading">Доменные фильтры</div>
-      
+      <div class="panel-body tables">
+      <table class="table">
+      <thead><tr><th class="col1">#</th><th class="col2">Код</th><th class="col3">Наименование</th><th class="col4">Флаг</th></tr></thead>
+      <tbody>
+      <?php
+          $flt->Select($peng,"avcDomine");
+          $arr=$flt->arr;
+          $rows=count($arr);
+          $hrows=floor($rows/2)+($rows%2);
+          for($i=0;$i<$hrows;$i++){
+              $tmp=each($arr);
+              $lrow=$tmp[1];
+              ?>
+              <tr data-id="<?= $lrow["id"]?>"><td class="col1"><?= $i+1 ?></td><td class="col2"><?= $lrow["avkey"]?></td><td class="col3"><?= $lrow["name"]?></td><td class="col4"><span data-id = "<?= $lrow["id"]?>" class="flag flag-<?= $flt->GetUserFlag($lrow["id"])?>"></span></td></tr>
+              <?php
+          }
+      ?>
+      </tbody>
+      </table>
+      <table class="table">
+      <thead><tr><th class="col1">#</th><th class="col2">Код</th><th class="col3">Наименование</th><th class="col4">Флаг</th></tr></thead>
+      <tbody>
+      <?php
+          for($i=$hrows;$i<$rows;$i++){
+              $tmp=each($arr);
+              $lrow=$tmp[1];
+              ?>
+              <tr data-id="<?= $lrow["id"]?>"><td class="col1"><?= $i+1 ?></td><td class="col2"><?= $lrow["avkey"]?></td><td class="col3"><?= $lrow["name"]?></td><td class="col4"><span data-id = "<?= $lrow["id"]?>" class="flag flag-<?= $flt->GetUserFlag($lrow["id"])?>"></span></td></tr>
+              <?php
+          }
+          if($hrows*2>$rows)echo "<tr><td></td><td></td><td></td><td></td></tr>";
+      ?>
+      </tbody>
+      </table>
       </div>
   </div>
 </div>

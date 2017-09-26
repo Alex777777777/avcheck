@@ -46,7 +46,7 @@ line-height: 1;
 }
 td>span.flag.flag-ok{color:#535ae9}
 td>span.flag.flag-ok::before{content: "\e013";}
-td>span.flag.flag-no{color:#666}
+td>span.flag.flag-no{color:#fe0e0e}
 td>span.flag.flag-no::before{content: "\e014";}
 .col1{
     min-width:50px;

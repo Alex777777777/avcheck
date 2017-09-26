@@ -1,6 +1,7 @@
 <?php
 require_once($PathLoc."/cls/avc_file.cls");
 require_once($PathLoc."/cls/avc_domine.cls");
+require_once($PathLoc."/cls/avc_eng.cls");
 class avcResume{
 var $id;
 var $type;
@@ -30,6 +31,7 @@ function __destruct() {
 private function _Clean(){
     $this->id=0;
     $this->type=0;
+    $this->engine="";
     $this->obj=0;
     $this->time="";
     $this->resume="";
@@ -71,6 +73,7 @@ function GetItem($lid){
             $this->id=$ret["id"];
             $this->time=$ret["time"];
             $this->type=$ret["type"];
+            $this->engine=$ret["engine"];
             $this->SetObject($ret["object"]);    
             $this->resume=trim($ret["resume"]);
             $this->user=$ret["user"];
@@ -125,7 +128,10 @@ function Parse(){
     $this->detect=0;
     $this->detects=array();
     $this->url="";
+    $flt=new avc_filters();
     $tmp=json_decode($this->resume,true);
+    $flt->Select($this->engine,$this->type);
+    $flt->ReadAV($tmp);
     if($tmp){
         if(isset($tmp["~~error"])){
             if($tmp["~~error"]==1){
@@ -137,6 +143,8 @@ function Parse(){
         foreach($tmp as $key=>$val){
             if($key=="~~link")$this->url=$val;
             if(substr($key,0,2)=="~~")continue;
+            $flt->Open($key);
+            if($flt->GetUserFlag()=="no")continue;
             $this->detecta++;
             $tmp1=array();
             $tmp1["key"]=$key;
