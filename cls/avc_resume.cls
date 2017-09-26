@@ -112,8 +112,20 @@ function Save(){
     }
     return(2);
 }
-function DoMesage(){return(0);}
-function GetMesage(){return("");}
+function DoMesage(){
+    global $user;
+    $ret=$this->detectn;
+    if($ret){
+        if(!trim($user->jabber))$ret=0;
+    }
+    return($ret);
+}
+function GetMessage(){
+    $ret="Domine/IP ";
+    if($this->type=="avcFile")$ret="Файл ";
+    $ret.=$this->obj->name." после проверки " . $this->time . " имеет ".$this->detectn." новый(х) детект(ов).";
+    return($ret);
+}
 function Delete($lpar){
     global $mdb;
     $this->LastErr=0;
@@ -194,56 +206,6 @@ function Filtre(){
         if($this->detects[$key]["flag"]==0)$ret--;
     }
     return($ret);
-}
-
-function JabberMSG(){
-    $newdtc=0;
-    $visdtc=0;
-    foreach($this->detects as $key=>$val){
-        $tmp=$val;
-        if($tmp["new"]==1){
-            $newdtc++;
-            if($tmp["flag"]==1){
-                $visdtc++;
-            }
-        }        
-    }
-    $ret="";
-    if($visdtc>0){
-        if($newdtc>0){
-            $avengs=$this->GetAVEngs();
-            $retc="New detects - $newdtc \n";
-            $rett="";
-            foreach($this->detects as $key=>$val){
-                $neng="";
-                if($avengs[$key]["eng"]=="1")$neng="VirusCM";
-                if($avengs[$key]["eng"]=="2")$neng="Scan4Y";
-                if($val["new"]==1)$rett.="[".$neng.":".$avengs[$key][name]."]->".$val["name"]."\n";
-                
-            }
-            $ret=$retc.$rett;
-            $retc="\nOld detects\n";
-            $rett="";
-            foreach($this->detects as $key=>$val){
-                $neng="";
-                if($avengs[$key]["eng"]=="1")$neng="VirusCM";
-                if($avengs[$key]["eng"]=="2")$neng="Scan4Y";
-                if($val["new"]==0)$ret.="[".$neng.":".$avengs[$key][name]."]->".$val["name"]."\n";
-                
-            }
-            if($rett)$ret=$retc.$rett;
-            $retc.="\nErased detects\n";
-            $rett="";
-            foreach($this->detects as $key=>$val){
-                $neng="";
-                if($avengs[$key]["eng"]=="1")$neng="VirusCM";
-                if($avengs[$key]["eng"]=="2")$neng="Scan4Y";
-                if($val["new"]==(-1))$rett.="[".$neng.":".$avengs[$key][name]."]->".$val["name"]."\n";
-            }
-            if($rett)$ret=$retc.$rett;
-        }
-    }
-    return($ret);    
 }
 }
 ?>

@@ -47,7 +47,7 @@ while(!file_exists($sigFile)){
             $resume->Parse();
             $resume->Save();
             if($resume->DoMesage()){
-                JabberNotify($user, $resume->GetMessage());
+                JabberNotify($user->$jabber, $resume->GetMessage());
             }
         }
         $jobs->DeleteJob();
