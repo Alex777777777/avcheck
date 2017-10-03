@@ -120,7 +120,7 @@ $tabs=$emgr->GetEngsName();
           $lurl=$rez->url;
           if($i+1<$kvo)$rez->Compare($rez->arr[$i+1]);
           $data=$rez->time;
-          if($rez-iserror=='Y'){
+          if($rez->iserror=='Y'){
             $eng_all='error';
             $eng_det='error';
             $eng_new='error';

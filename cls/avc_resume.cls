@@ -148,6 +148,7 @@ function Parse(){
         if(isset($tmp["~~error"])){
             if($tmp["~~error"]==1){
                 $this->errDescr=$tmp["~~errdescr"];
+                $this->url=$tmp["~~link"];
                 $this->iserror="Y";
                 return;
             };
