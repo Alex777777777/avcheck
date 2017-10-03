@@ -37,9 +37,9 @@ while(!file_exists($sigFile)){
     $sh->ReBuild();
     $sh->Check();
     while($jobs->Select()){
-        $oldt=$newt;
         $newt=time();
-        if($newt-$oldt<60){sleep(60);continue;} 
+        if($newt-$oldt<60){sleep(30);continue;} 
+        $oldt=$newt;
         $jobs->GetItem();
         if(!$jobs->LastErr){
             $lstr="New JOB # ".$jobs->id;
