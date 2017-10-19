@@ -3,6 +3,11 @@ if(!isset($_POST["type"])){echo "ERR: Wrong requwest";exit;}
 require_once($PathLoc."/cls/avc_resume.cls");
 require_once($PathLoc."/cls/avc_eng.cls");
 switch ($_POST["type"]){
+    case "resdel":
+        $obj=new avcResume();
+        $obj->Delete($_POST["objid"]);
+        echo "OK";
+    break;
     case "get":
         $obj=new $_POST["objclass"]();
         $obj->GetItem($_POST["objid"]);

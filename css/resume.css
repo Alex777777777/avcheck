@@ -64,6 +64,17 @@ border-bottom: none;
 .rezitem.active{background:#5bc0de;}
 .rezitem:hover{box-shadow: 1px 1px 10px #000;}
 .str{display:flex;}
+.ditem{
+position: relative;
+top: -5px;
+left: 275px;
+padding-left: 10px;
+background: #666;
+color: #aaa;
+width: 65px;
+z-index: 10;
+}
+.ditem:hover{background: #000;color: #fff;}
 .rezitem>.str>.caps{width:150px;}
 .rezitem>.str>.vals{width: 185px;text-align: center;}
 .rezitem>.str>.vals>span{color:#f00;}

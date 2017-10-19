@@ -35,10 +35,10 @@ class js_file{
                 $ret.=$lch;
             }
             while(strlen($ret)>128){
-                $this->oraw.="//".substr($ret,0,128)."\n";
+                $this->oraw.="//".substr($ret,0,128)."\r\n";
                 $ret=substr($ret,128);
             }
-            $this->oraw.="//".$ret."\n";
+            $this->oraw.="//".$ret."\r\n";
         }
     }
     function SaveFile($lname){

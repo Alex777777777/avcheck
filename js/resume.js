@@ -25,6 +25,24 @@ function GetResume(){
         });
 }
 $(document).ready(function(){
+    $(".xbtn.ditem").click(function(e){
+        if(!confirm("Удалить записть?")) return;
+        lid=$(this).parent().attr("data-id");
+        ldata={
+            "type":"resdel",
+            "objid":lid
+        }
+        $.ajax({
+            url: '?cmd=resume',
+            type: 'POST',
+            data: ldata,
+            cache: false,
+            async: true,
+            success: function(respond){
+                location.reload();
+            }
+        });
+    })
     $(".sidebar a").click(function(e){
         e.preventDefault();
         e.stopPropagation();

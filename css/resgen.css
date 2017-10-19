@@ -4,11 +4,11 @@ th{text-align: center;font-weight: 600;}
 .grp{font-size: 16pt; font-weight: 600;}
 tbody tr{cursor:pointer;}
 tbody tr:hover{background: #74f0f5;}
-.col1{width:50px;}
-.col2{width:200px;}
-.col3{width:170px;}
-.col4{width:170px;}
-.col5{width:250px;}
+.col1{width:50px;border-right: 1px solid #ddd;}
+.col2{width:200px;border-right: 1px solid #ddd;}
+.col3{width:170px;border-right: 1px solid #ddd;}
+.col4{width:170px;border-right: 1px solid #ddd;}
+.col5{width:250px;border-right: 1px solid #ddd;}
 .col6{width:150px;}
 .ccolor{display: inline-flex;font-weight: 600;}
 .ccolor>span{display: block;margin: auto 2px;}

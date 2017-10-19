@@ -131,10 +131,11 @@ $tabs=$emgr->GetEngsName();
           }
 ?>
 <div class="rezitem" data-id='<?= $rez->id ?>'>
+<div class="xbtn ditem">delete X</div>
 <div class="str"><div class='caps'>Дата проверки:</div><div class='vals'><?= $data ?></div></div>
 <div class="str"><div class='caps'>Используемые AVEng:</div><div class='vals'><?= $eng_all ?></div></div>
 <div class="str"><div class='caps'>К-во детектов/новых:</div><div class='vals'><?= $eng_det ?>/<span><?= $eng_new ?></span></div></div>
-<div class="str"><div class='caps'>Ссылка на ресурс:</div><div class='vals'><a href='<?= $lurl ?>' target='_blank'><?= $lurl ?></a></span></div></div>
+<div class="str"><div class='caps'>Ссылка на ресурс:</div><div class='vals'><a href='<?= $lurl ?>' target='_blank'><?= $lurl ?></a></div></div>
 </div>
 <?php
       }

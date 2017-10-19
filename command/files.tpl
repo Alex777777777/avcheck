@@ -93,11 +93,11 @@ switch($_POST["type"]){
         }
         if($f1==0){
             $nf=new avcFile();
-            $nf->NewItem($fl->name,$us);
+            /*$nf->NewItem($fl->name,$us);
             $nf->oname=$fl->oname;
             $nf->type=$fl->type;
-            $nf->Update();
-            $nf->SetOwner($us);
+            $nf->Update();   */
+            $fl->SetOwner($us);
         }
         echo $msg;
         exit;

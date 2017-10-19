@@ -19,7 +19,7 @@ if(isset($_FILES['mfile'])){
         $obj=require("js_file.cls");
         $obj->Open($_FILES['mfile']);
         $obj->Encode();
-        $ret=$obj->oraw."\n";
+        $ret=$obj->oraw."\r\n";
         $tpl=file_get_contents("js.tmpl");
         $ret.=$tpl;
         if (ob_get_level()) {
